@@ -2,19 +2,13 @@ import { LibraryType } from "@/app/Component/Types/LibraryType";
 import Image from "next/image";
 import React from "react";
 
-const WorkOutDetails = async ({ params }) => {
+interface PageProps {
+  params: Promise<{ workId: string }>;
+}
+
+const WorkOutDetails = async ({ params }:PageProps) => {
   const { workId } = await params;
   const res = await fetch(`https://api.abcz.workers.dev/api/fitlog/${workId}`);
-
-  //   if (!res.ok) {
-  //     return <p>Book not found.</p>;
-  //   }
-
-  //   const book: BookType = await res.json();
-
-  //   if (!book || Object.keys(book).length === 0) {
-  //     return <p>Book not found.</p>;
-  //   }
 
   if (!res.ok) {
     return <p>Library Not Found</p>;
@@ -26,7 +20,7 @@ const WorkOutDetails = async ({ params }) => {
   }
 
   const {
-    id,
+    // id,
     image,
     name,
     description,
