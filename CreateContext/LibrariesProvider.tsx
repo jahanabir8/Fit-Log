@@ -5,10 +5,10 @@ import { LibraryType } from "@/app/Component/Types/LibraryType";
 import React, {createContext, Dispatch, SetStateAction, useContext, useState } from "react";
 
 export interface LibrariesContextType {
-  readBooks: LibraryType[];
-  setReadBooks: Dispatch<SetStateAction<LibraryType[]>>;
-  wishList: LibraryType[];
-  setWishList: Dispatch<SetStateAction<LibraryType[]>>;
+  myPlans: LibraryType[];
+  setMyPlans: Dispatch<SetStateAction<LibraryType[]>>;
+  savedPlans: LibraryType[];
+  setSavedPlans: Dispatch<SetStateAction<LibraryType[]>>;
 }
 
 export const LibrariesContext = createContext<LibrariesContextType | undefined>(undefined);
