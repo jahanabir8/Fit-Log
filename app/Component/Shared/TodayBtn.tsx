@@ -1,8 +1,8 @@
 "use client";
 
-import { LibrariesContext } from "@/CreateContext/LibrariesProvider";
+import { useLibrariesContext } from "@/CreateContext/LibrariesProvider";
 import Link from "next/link";
-import React, { useContext } from "react";
+import React from "react";
 import { LibraryType } from "../Types/LibraryType";
 import { toast } from "react-toastify";
 
@@ -11,20 +11,15 @@ export interface BtnPlanType {
 }
 
 const TodayBtn = ({ myPlan }: BtnPlanType) => {
-  // const hellos = LibrariesContext()
-  const { myPlans, setMyPlans } = useContext(LibrariesContext);
+  const { myPlans, setMyPlans } = useLibrariesContext();
 
   const handleMyPlans = () => {
-    // const alreadyExists = savedPlans.some((plan) => plan.id === myPlan.id);
-    //       if (alreadyExists) {
-    //     toast.info(`${myPlan.name} is already in your saved plans`);
-    //     return;
-    //   }
-
-    const alreadyExists = myPlans.some((plan) => plan.id === myPlan.id);
-        if (alreadyExists) {
-        toast.info(`${myPlan.name} is already in your contains plans`);
-        return;
+    const alreadyExists = myPlans.some(
+      (plan: LibraryType) => plan.id === myPlan.id,
+    );
+    if (alreadyExists) {
+      toast.info(`${myPlan.name} is already in your contains plans`);
+      return;
     }
 
     setMyPlans([...myPlans, myPlan]);

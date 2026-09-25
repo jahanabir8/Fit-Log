@@ -4,12 +4,15 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { useContext } from "react";
-import { LibrariesContext } from "@/CreateContext/LibrariesProvider";
+import {
+  // LibrariesContext,
+  useLibrariesContext,
+} from "@/CreateContext/LibrariesProvider";
 
 const NavBar = () => {
   const pathName = usePathname();
 
-  const {myPlans, savedPlans} = useContext(LibrariesContext)
+  const { myPlans, savedPlans } = useLibrariesContext();
 
   const links = (
     <>

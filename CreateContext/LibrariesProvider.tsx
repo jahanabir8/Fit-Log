@@ -2,7 +2,7 @@
 
 import { LibraryType } from "@/app/Component/Types/LibraryType";
 // import { createContext } from "node:vm";
-import React, {createContext, Dispatch, SetStateAction, useState } from "react";
+import React, {createContext, Dispatch, SetStateAction, useContext, useState } from "react";
 
 export interface LibrariesContextType {
   readBooks: LibraryType[];
@@ -11,11 +11,11 @@ export interface LibrariesContextType {
   setWishList: Dispatch<SetStateAction<LibraryType[]>>;
 }
 
-export const LibrariesContext = createContext({})
+export const LibrariesContext = createContext<LibrariesContextType | undefined>(undefined);
 
 const LibrariesProvider = ({ children }: { children: React.ReactNode }) => {
-  const [myPlans, setMyPlans] = useState([]);
-  const [savedPlans, setSavedPlans] = useState([]);
+  const [myPlans, setMyPlans] = useState<LibraryType[]>([]);
+  const [savedPlans, setSavedPlans] = useState<LibraryType[]>([]);
 
   const sharedPlans = {
     myPlans,
@@ -29,6 +29,14 @@ const LibrariesProvider = ({ children }: { children: React.ReactNode }) => {
       {children}
     </LibrariesContext.Provider>
   );
+};
+
+export const useLibrariesContext = () => {
+  const context = useContext(LibrariesContext);
+  if (!context) {
+    throw new Error("useLibrariesContext must be used within a LibrariesProvider");
+  }
+  return context;
 };
 
 export default LibrariesProvider;

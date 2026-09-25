@@ -1,18 +1,19 @@
 "use client";
 
 import Link from "next/link";
-import React, { useContext } from "react";
-// import Libraries from "../Homepage/Libraries";
-import { LibrariesContext } from "@/CreateContext/LibrariesProvider";
+import React from "react";
+import { useLibrariesContext } from "@/CreateContext/LibrariesProvider";
 import { BtnPlanType } from "./TodayBtn";
+import { LibraryType } from "../Types/LibraryType";
 import { toast } from "react-toastify";
 
 const SaveBtn = ({ myPlan }: BtnPlanType) => {
-  const { savedPlans, setSavedPlans } = useContext(LibrariesContext);
-  // console.log(hellos);
+  const { savedPlans, setSavedPlans } = useLibrariesContext();
 
   const handleSavedPlans = () => {
-    const alreadyExists = savedPlans.some((plan) => plan.id === myPlan.id);
+    const alreadyExists = savedPlans.some(
+      (plan: LibraryType) => plan.id === myPlan.id,
+    );
 
     if (alreadyExists) {
       toast.info(`${myPlan.name} is already in your saved plans`);

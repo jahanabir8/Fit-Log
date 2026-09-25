@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useContext, useState } from "react";
-import { LibrariesContext } from "@/CreateContext/LibrariesProvider";
+import { useLibrariesContext } from "@/CreateContext/LibrariesProvider";
 import { LibraryType } from "../Types/LibraryType";
 import { toast } from "react-toastify";
 import SummaryState from "../Shared/SummaryState";
@@ -12,7 +12,7 @@ import PlanList from "./PlanList";
 export type SortOption = "duration" | "calories" | "rating";
 
 const PlanManager = () => {
-  const { myPlans, savedPlans, setMyPlans, setSavedPlans } = useContext(LibrariesContext);
+  const { myPlans, savedPlans, setMyPlans, setSavedPlans } = useLibrariesContext();
   const [activeTab, setActiveTab] = useState<"today" | "saved">("today");
   const [sortBy, setSortBy] = useState<SortOption>("duration");
 
