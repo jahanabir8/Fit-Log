@@ -2,9 +2,6 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React from "react";
-
-import Logo from "../../../public/logo.png";
 import Image from "next/image";
 
 const NavBar = () => {
@@ -41,12 +38,10 @@ const NavBar = () => {
   );
 
   return (
-    <div className="border-b border-[#1B1E20] bg-[#0D0F10]">
-      <div className="navbar container mx-auto min-h-[70px] max-w-[1120px] px-4 sm:px-5">
-
+    <div className="border-b border-[#1B1E20] bg-[#1C1F26]">
+      <div className="navbar container mx-auto min-h-17.5 max-w-280 px-4 sm:px-5">
         {/* Left: Logo + Mobile Menu */}
         <div className="navbar-start">
-
           <div className="dropdown">
             <div
               tabIndex={0}
@@ -83,7 +78,7 @@ const NavBar = () => {
             className="btn btn-ghost flex h-auto gap-2 px-1 text-lg font-bold text-white hover:bg-transparent sm:text-xl"
           >
             <Image
-              src={Logo}
+              src="/logo.png"
               alt="FITLOG logo"
               width={26}
               height={26}
@@ -103,14 +98,13 @@ const NavBar = () => {
 
         {/* Right Side */}
         <div className="navbar-end gap-2 sm:gap-5">
-
           <Link
             href="/plan"
             className="flex items-center gap-2 text-xs text-[#B5B7B8] transition hover:text-white"
           >
             <span>Plan</span>
 
-            <span className="flex h-[18px] min-w-[18px] items-center justify-center rounded-full bg-[#C2F800] px-1 text-[10px] font-bold text-black">
+            <span className="flex h-4.5 min-w-4.5 items-center justify-center rounded-full bg-[#C2F800] px-1 text-[10px] font-bold text-black">
               0
             </span>
           </Link>
@@ -121,11 +115,10 @@ const NavBar = () => {
           >
             <span>Saved</span>
 
-            <span className="flex h-[18px] min-w-[18px] items-center justify-center rounded-full border border-[#34383B] px-1 text-[10px] text-[#8C8F91]">
+            <span className="flex h-4.5 min-w-4.5 items-center justify-center rounded-full border border-[#34383B] px-1 text-[10px] text-[#8C8F91]">
               0
             </span>
           </Link>
-
         </div>
       </div>
     </div>
