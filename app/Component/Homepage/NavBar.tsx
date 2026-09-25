@@ -3,17 +3,21 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import { useContext } from "react";
+import { LibrariesContext } from "@/CreateContext/LibrariesProvider";
 
 const NavBar = () => {
   const pathName = usePathname();
+
+  const {myPlans, savedPlans} = useContext(LibrariesContext)
 
   const links = (
     <>
       <li>
         <Link
-          href="/workout"
+          href="/"
           className={`rounded-full px-4 py-2 text-xs ${
-            pathName === "/workout"
+            pathName === "/"
               ? "bg-[#1A2312] text-[#C2F800]"
               : "text-[#8C8F91] hover:bg-[#1A2312] hover:text-[#C2F800]"
           }`}
@@ -99,24 +103,24 @@ const NavBar = () => {
         {/* Right Side */}
         <div className="navbar-end gap-2 sm:gap-5">
           <Link
-            href="/plan"
+            href="/myplan"
             className="flex items-center gap-2 text-xs text-[#B5B7B8] transition hover:text-white"
           >
             <span>Plan</span>
 
             <span className="flex h-4.5 min-w-4.5 items-center justify-center rounded-full bg-[#C2F800] px-1 text-[10px] font-bold text-black">
-              0
+              {myPlans.length}
             </span>
           </Link>
 
           <Link
-            href="/saved"
+            href="/myplan"
             className="flex items-center gap-2 text-xs text-[#B5B7B8] transition hover:text-white"
           >
             <span>Saved</span>
 
             <span className="flex h-4.5 min-w-4.5 items-center justify-center rounded-full border border-[#34383B] px-1 text-[10px] text-[#8C8F91]">
-              0
+              {savedPlans.length}
             </span>
           </Link>
         </div>

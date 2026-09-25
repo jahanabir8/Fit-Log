@@ -1,12 +1,16 @@
+import SaveBtn from "@/app/Component/Shared/SaveBtn";
+import TodayBtn from "@/app/Component/Shared/TodayBtn";
 import { LibraryType } from "@/app/Component/Types/LibraryType";
+import LibrariesProvider from "@/CreateContext/LibrariesProvider";
 import Image from "next/image";
-import React from "react";
+import Link from "next/link";
+import React, { useContext } from "react";
 
 interface PageProps {
   params: Promise<{ workId: string }>;
 }
 
-const WorkOutDetails = async ({ params }:PageProps) => {
+const WorkOutDetails = async ({ params }: PageProps) => {
   const { workId } = await params;
   const res = await fetch(`https://api.abcz.workers.dev/api/fitlog/${workId}`);
 
@@ -34,6 +38,8 @@ const WorkOutDetails = async ({ params }:PageProps) => {
     rating,
     instructions,
   } = exercise;
+
+//   const {myPlans, setMyPlans} = useContext(LibrariesProvider)
 
   return (
     <div className="min-h-screen bg-[#0d0d12] text-white flex items-center justify-center p-4 md:p-8 font-sans">
@@ -138,10 +144,10 @@ const WorkOutDetails = async ({ params }:PageProps) => {
                 {instructions.map((instruction, index) => {
                   return (
                     <li key={index} className="flex items-start gap-2">
-                      <span className="text-gray-400 font-semibold">{index+1}.</span>
-                      <span>
-                        {instruction}
+                      <span className="text-gray-400 font-semibold">
+                        {index + 1}.
                       </span>
+                      <span>{instruction}</span>
                     </li>
                   );
                 })}
@@ -175,36 +181,45 @@ const WorkOutDetails = async ({ params }:PageProps) => {
 
           {/* Action Buttons */}
           <div className="flex items-center gap-3 pt-2">
-            <button className="flex-1 bg-[#ccff00] hover:bg-[#b8e600] text-black font-semibold py-2.5 px-4 rounded-xl text-xs md:text-sm flex items-center justify-center gap-2 transition-colors">
-              <svg
-                stroke="currentColor"
-                fill="none"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-                className="w-4 h-4"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                <line x1="16" y1="2" x2="16" y2="6"></line>
-                <line x1="8" y1="2" x2="8" y2="6"></line>
-                <line x1="3" y1="10" x2="21" y2="10"></line>
-              </svg>
-              <span>Add to today's plan</span>
-            </button>
+            <TodayBtn myPlan={exercise}/>
+            <SaveBtn myPlan = {exercise} />
+            {/* <Link
+              href=""
+              className="bg-[#ccff00] hover:bg-[#b8e600] text-black font-semibold py-2.5 px-4 rounded-xl text-xs md:text-sm"
+            >
+              <button className=" flex items-center justify-center gap-2 transition-colors">
+                <svg
+                  stroke="currentColor"
+                  fill="none"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                  className="w-4 h-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                <span>Add to today's plan</span>
+              </button>
+            </Link> */}
 
-            <button className="border border-gray-700 hover:border-gray-500 bg-[#14161d] text-gray-300 font-medium py-2.5 px-4 rounded-xl text-xs md:text-sm flex items-center justify-center gap-2 transition-colors">
-              <svg
-                stroke="currentColor"
-                fill="none"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-                className="w-4 h-4"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
-              </svg>
-              <span>Save for later</span>
-            </button>
+            {/* <Link href="/" className="border border-gray-700 hover:border-gray-500 bg-[#14161d] text-gray-300 font-medium py-2.5 px-4 rounded-xl text-xs md:text-sm ">
+              <button className="flex items-center justify-center gap-2 transition-colors">
+                <svg
+                  stroke="currentColor"
+                  fill="none"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                  className="w-4 h-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                </svg>
+                <span>Save for later</span>
+              </button>
+            </Link> */}
           </div>
         </div>
       </div>
