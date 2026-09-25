@@ -66,7 +66,7 @@ const Banner = () => {
 
             <div className="mt-6">
               <a
-                href="/workout"
+                href="#workout"
                 className="
               inline-flex
               items-center
