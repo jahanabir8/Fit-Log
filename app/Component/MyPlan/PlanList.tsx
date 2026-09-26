@@ -24,7 +24,7 @@ const PlanList = ({ plans, activeTab, onRemove }: PlanListProps) => {
             : "You haven't saved any plans yet."}
         </p>
 
-        <Link href="/workout">
+        <Link href="/">
           <button className="bg-[#ccff00] hover:bg-[#b8e600] text-black font-extrabold text-xs sm:text-sm py-3 px-6 rounded-full transition-all shadow-md hover:scale-105 active:scale-95">
             Go to workouts
           </button>

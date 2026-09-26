@@ -25,15 +25,15 @@ const NavBar = () => {
               : "text-[#8C8F91] hover:bg-[#1A2312] hover:text-[#C2F800]"
           }`}
         >
-          Workouts
+          Workout
         </Link>
       </li>
 
       <li>
         <Link
-          href="/myplan"
+          href="/my-plan"
           className={`rounded-full px-4 py-2 text-xs ${
-            pathName === "/myplan"
+            pathName === "/my-plan"
               ? "bg-[#1A2312] text-[#C2F800]"
               : "text-[#8C8F91] hover:bg-[#1A2312] hover:text-[#C2F800]"
           }`}
@@ -106,7 +106,7 @@ const NavBar = () => {
         {/* Right Side */}
         <div className="navbar-end gap-2 sm:gap-5">
           <Link
-            href="/myplan"
+            href="/my-plan"
             className="flex items-center gap-2 text-xs text-[#B5B7B8] transition hover:text-white"
           >
             <span>Plan</span>
@@ -117,7 +117,7 @@ const NavBar = () => {
           </Link>
 
           <Link
-            href="/myplan"
+            href="/my-plan"
             className="flex items-center gap-2 text-xs text-[#B5B7B8] transition hover:text-white"
           >
             <span>Saved</span>

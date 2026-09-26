@@ -15,22 +15,17 @@ const Libraries = async () => {
   //   console.log(libraries);
 
   return (
-    <section id="workout" className="bg-[#0D0F10] px-4 py-12 sm:px-6 lg:px-8">
+    <section id="library" className="bg-[#0D0F10] px-4 py-12 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-280">
         {/* Section Header */}
         <div className="mb-8 flex items-end justify-between">
           <div>
             <p className="mb-2 text-xs font-medium uppercase tracking-[0.2em] text-[#C2F800]">
-              WORKOUT LIBRARY
+              THE LIBRARY
             </p>
 
-            <h2 className="text-2xl font-bold text-white sm:text-3xl">
-              TRAIN WITH INTENT. LOG EVERY SET.
-            </h2>
-
             <p className="mt-2 max-w-xl text-sm text-[#8C8F91]">
-              FitLog is a dark, no-nonsense gym companion: pick a lift, lock it
-              into today's plan, and watch the week's work add up.
+              Twelve lifts covering every major muscle group
             </p>
           </div>
 

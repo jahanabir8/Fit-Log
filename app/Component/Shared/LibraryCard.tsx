@@ -49,7 +49,7 @@ export default function LibraryCard({ exercise }: LibraryCardProps) {
           <p className="text-sm text-neutral-400 mb-4">{equipment}</p>
 
           {/* Meta info */}
-          <div className="flex items-center justify-between border-t border-neutral-800 pt-4 text-sm text-neutral-300">
+          <div className="flex items-center justify-start gap-3 border-t border-neutral-800 pt-4 text-sm text-neutral-300">
             <div className="flex items-center gap-1.5">
               <svg
                 className="h-4 w-4 text-neutral-400"

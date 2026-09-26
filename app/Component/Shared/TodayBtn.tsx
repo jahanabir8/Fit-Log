@@ -23,7 +23,7 @@ const TodayBtn = ({ myPlan }: BtnPlanType) => {
     }
 
     setMyPlans([...myPlans, myPlan]);
-    toast.success("Plan Added Successfuly");
+    toast.success("Added to today's plan");
   };
   // console.log(myPlans, 'myPlans');
 

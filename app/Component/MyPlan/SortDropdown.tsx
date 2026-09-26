@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { SortOption } from "./PlanManager";
+import { HiChevronDown } from "react-icons/hi2";
 
 const SORT_LABELS: Record<SortOption, string> = {
   duration: "Duration",
@@ -26,19 +27,17 @@ const SortDropdown = ({ sortBy, setSortBy }: SortDropdownProps) => {
           className="bg-[#12141a] border border-gray-800 text-gray-200 font-semibold px-3 py-1.5 rounded-lg flex items-center gap-2 hover:border-gray-700 transition-colors"
         >
           <span>{SORT_LABELS[sortBy]}</span>
-          <svg
+          <HiChevronDown
             className={`w-3.5 h-3.5 text-gray-400 transition-transform ${open ? "rotate-180" : ""}`}
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-          </svg>
+          />
         </button>
 
         {open && (
           <>
-            <div className="fixed inset-0 z-10" onClick={() => setOpen(false)} />
+            <div
+              className="fixed inset-0 z-10"
+              onClick={() => setOpen(false)}
+            />
             <div className="absolute right-0 mt-2 w-36 bg-[#12141a] border border-gray-800 rounded-lg shadow-lg z-20 overflow-hidden">
               {(Object.keys(SORT_LABELS) as SortOption[]).map((option) => (
                 <button
