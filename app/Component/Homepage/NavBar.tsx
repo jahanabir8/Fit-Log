@@ -45,7 +45,7 @@ const NavBar = () => {
   );
 
   return (
-    <div className="border-b border-[#1B1E20] bg-[#1C1F26]">
+    <div className="border-b border-[#1B1E20] bg-[#1C1F26] sticky top-0 left-0">
       <div className="navbar container mx-auto min-h-17.5 max-w-280 px-4 sm:px-5">
         {/* Left: Logo + Mobile Menu */}
         <div className="navbar-start">
